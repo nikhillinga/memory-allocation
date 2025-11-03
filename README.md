@@ -1,73 +1,189 @@
-# Welcome to your Lovable project
+# Memory Allocation Simulator
 
-## Project info
+An **interactive web application** that visualizes **memory allocation algorithms** — including **First-Fit**, **Best-Fit**, and **Worst-Fit** — in real time.  
+Built using **React**, **Vite**, **TypeScript**, and **Tailwind CSS**, this tool helps learners and educators understand how dynamic memory management works at a low level through an intuitive graphical interface.
 
-**URL**: https://lovable.dev/projects/5dc485e3-1c4b-4f23-86c2-23c85921c5cb
+---
 
-## How can I edit this code?
+## Table of Contents
 
-There are several ways of editing your application.
+- [Introduction](#introduction)
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Configuration](#configuration)
+- [Project Structure](#project-structure)
+- [Development](#development)
+- [Deployment](#deployment)
+- [Troubleshooting](#troubleshooting)
+- [Contributors](#contributors)
+- [License](#license)
 
-**Use Lovable**
+---
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/5dc485e3-1c4b-4f23-86c2-23c85921c5cb) and start prompting.
+## Introduction
 
-Changes made via Lovable will be committed automatically to this repo.
+The **Memory Allocation Simulator** provides an educational visualization of how different allocation algorithms assign processes to memory blocks.  
+It’s ideal for students studying **Operating Systems** or **Computer Architecture**, and for instructors demonstrating memory management techniques.
 
-**Use your preferred IDE**
+The app allows you to:
+- Input **custom memory blocks** and **process sizes**
+- Step through each allocation decision
+- Compare **fragmentation**, **allocation success**, and **memory waste**
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Features
 
-Follow these steps:
+✅ Real-time visualization of memory allocation steps  
+✅ Support for **First-Fit**, **Best-Fit**, and **Worst-Fit** algorithms  
+✅ Interactive control panel with **Play**, **Pause**, and **Step** navigation  
+✅ Dynamic configuration of block and process sizes  
+✅ Fragmentation and allocation statistics  
+✅ Adjustable simulation speed  
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+---
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## Tech Stack
 
-# Step 3: Install the necessary dependencies.
-npm i
+| Category | Technologies |
+|-----------|--------------|
+| Framework | **React** (via Vite) |
+| Language | **TypeScript (ES2020+)** |
+| Styling | **Tailwind CSS** + **autoprefixer** |
+| UI Library | **shadcn-ui** |
+| Build Tool | **Vite** |
+| Config | PostCSS, TypeScript, Vite configs |
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+---
+
+## Installation
+
+To run the project locally:
+
+```bash
+# Clone the repository
+git clone https://github.com/nikhillinga/memory-allocation.git
+
+# Navigate into the project
+cd memory-allocation
+
+# Install dependencies
+npm install
+
+# Start the development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+Once running, open the URL shown in the console (usually `http://localhost:5173`) in your browser.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Usage
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+1. Open the simulator in your browser.
+2. Enter **Memory Blocks** (e.g., `100, 500, 200, 300, 600`).
+3. Enter **Processes** (e.g., `212, 417, 112, 426`).
+4. Choose an allocation algorithm from the dropdown:
+   - **Best-Fit**
+   - **First-Fit**
+   - **Worst-Fit**
+5. Click **Start** to begin simulation.
+6. Use controls to:
+   - ▶ **Play / Pause**
+   - ⟶ **Step Forward / Backward**
+   - 🔁 **Reset Simulation**
+7. Monitor real-time stats such as:
+   - Allocated Memory
+   - Wasted Memory
+   - Fragmentation
+   - Success & Fail Counts
 
-## What technologies are used for this project?
+---
 
-This project is built with:
+## Configuration
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+Configuration files include:
 
-## How can I deploy this project?
+| File | Purpose |
+|------|----------|
+| `postcss.config.js` | Tailwind and autoprefixer setup |
+| `tailwind.config.ts` | Tailwind theme configuration |
+| `vite.config.ts` | Build and development server configuration |
+| `tsconfig.app.json` / `tsconfig.node.json` | TypeScript compiler options |
 
-Simply open [Lovable](https://lovable.dev/projects/5dc485e3-1c4b-4f23-86c2-23c85921c5cb) and click on Share -> Publish.
+---
 
-## Can I connect a custom domain to my Lovable project?
+## Project Structure
 
-Yes, you can!
+```
+memory-allocation/
+├── index.html
+├── src/
+│   ├── assets/
+│   ├── components/
+│   ├── styles/
+│   └── main.tsx
+├── public/
+│   └── favicon.ico
+├── postcss.config.js
+├── tailwind.config.ts
+├── tsconfig.json
+├── vite.config.ts
+└── README.md
+```
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+---
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Development
+
+Run a live development environment with hot reload:
+
+```bash
+npm run dev
+```
+
+Build the project for production:
+
+```bash
+npm run build
+```
+
+Preview the production build:
+
+```bash
+npm run preview
+```
+
+---
+
+## Deployment
+
+You can deploy using any static site host such as:
+- **Vercel**
+- **Netlify**
+- **GitHub Pages**
+
+---
+
+## Troubleshooting
+
+| Issue | Solution |
+|--------|-----------|
+| `npm run dev` fails | Ensure **Node.js (v18+)** and **npm** are installed |
+| Blank screen or broken styles | Run `npm run build` to verify Tailwind compilation |
+| TypeScript errors | Check `tsconfig.json` for missing or incorrect paths |
+| UI not updating | Refresh browser or clear cache |
+
+---
+
+## Contributors
+
+- **Nikhil Arya Linga (23BAI0142)**  
+
+---
+
+## 📜 License
+
+This project is licensed under the **MIT License** — free for personal and educational use.
